@@ -227,10 +227,12 @@ vnoremap <LEADER>k <C-W><C-K>
 vnoremap <LEADER>l <C-W><C-L>
 vnoremap <LEADER>h <C-W><C-H>
 
-"open a new buffer with <LEADER>+o
+"open a new buffer with <LEADER>O
 "why cycle when you can fly?
 "https://vi.stackexchange.com/questions/4995/how-does-one-put-currently-open-files-into-tabs
-nnoremap <LEADER>o :ls<CR>:b<SPACE>
+nnoremap <LEADER>O :ls<CR>:b<SPACE>
+"i now use <LEADER>o for ctrlPbuffer searching
+
 
 "cycle tabs with <SPACE><TAB>
 nnoremap <LEADER><TAB> gt
@@ -246,10 +248,17 @@ vnoremap <LEADER>c ~
 "exclamation to overwrite existing sessions. This is a quicksave
 nnoremap <LEADER>s :mksession!<CR>
 
-"type leader / for 
+"type <LEADER> / for 
 "very magic mode, global replace, ask for confirmation
 "and positions cursor so you type search/replace
-nnoremap <leader>/ :%s/\v/gc<Left><Left><Left>
+nnoremap <LEADER>/ :%s/\v/gc<Left><Left><Left>
+
+"type <LEADER> ? for search accross files
+"noautocmd to prevent slow searches (would run autocmds on every search)
+"/c to ignore case (/C if you want case matching)
+"j flag to prevent it jumping to first match
+"** for current directory recursive search
+nnoremap <LEADER>? :noautocmd<SPACE>vimgrep<SPACE>/\c/j<SPACE>**<LEFT><LEFT><LEFT><LEFT><LEFT>
 
 "im tired of reaching for shift. Why do in 3 what you can do in 2?
 nnoremap ; :
@@ -340,6 +349,7 @@ endif
 "___________________________________CTRL__P___________________________________{{{
 
 "fuzzy search file browser for vim. Remapped in key_mapping to <LEADER>p
+"and <LEADER>o for buffer search
 
 "default start directory when opened is vims directory.
 "When you change dir with :cd ctrlp will use that by default
@@ -348,13 +358,16 @@ let g:ctrlp_working_path_mode = 0
 "change the default mapping and Command to start ctrl-p
 let g:ctrlp_map = '<LEADER>p'
 let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_cmd = 'CtrlP'
+
+"change the default mapping to search through buffers
+nnoremap <LEADER>o :CtrlPBuffer<CR>
 
 "always open new files in a new buffer
 let g:ctrlp_switch_buffer=0
 
 "put most relevant results on top, least on bottom
 let g:ctrlp_match_window = 'bottom,order:ttb'
-
 " }}}
 
 " }}}
