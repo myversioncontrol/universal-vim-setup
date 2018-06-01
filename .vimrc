@@ -16,9 +16,9 @@ set noet ci pi sts=0 sw=4 ts=4
 try
 	filetype plugin indent on
 	syntax enable
-	set background=dark
-	let g:solarized_termcolors=256
+	let g:solarized_termcolors=16
 	colorscheme solarized
+	set background=dark
 catch
 endtry
 
@@ -27,6 +27,10 @@ endtry
 
 " Lines
 set number
+
+"gives numbering relative to your cursor. 
+"both number and relativenumber makes current line absolute, rest relative
+set relativenumber
 
 " gives pretty colours for coding
 syntax on
@@ -70,6 +74,10 @@ set hlsearch
 "type leader / for 
 "very magic mode, global replace, ask for confirmation
 "and positions cursor so you type search/replace
+
+"* and # will now jump you back to the word you started it on, and center screen.
+
+"next search and previous search center screen after jumps
 
 " }}}
 "___________________________________FOLDING___________________________________{{{
@@ -133,6 +141,12 @@ function! ToggleMappings()
 		"for loop
 		imap for<TAB> for<SPACE>()<SPACE>{<CR>}<ESC>k$ba
 
+		"foreach loop
+		imap foreach<TAB> foreach<SPACE>()<SPACE>{<CR>}<ESC>k$ba
+		imap foreac<TAB> foreach<SPACE>()<SPACE>{<CR>}<ESC>k$ba
+		imap forea<TAB> foreach<SPACE>()<SPACE>{<CR>}<ESC>k$ba
+		imap fore<TAB> foreach<SPACE>()<SPACE>{<CR>}<ESC>k$ba
+
 		"while loop
 		imap while<TAB> while<SPACE>()<SPACE>{<CR>}<ESC>k$ba
 
@@ -145,6 +159,10 @@ function! ToggleMappings()
 		iunmap else<TAB>
 		iunmap elseif<TAB>
 		iunmap for<TAB>
+		iunmap foreach<TAB>
+		iunmap foreac<TAB>
+		iunmap forea<TAB>
+		iunmap fore<TAB>
 		iunmap while<TAB>
 		iunmap func<TAB>
 		echo "AC OFF!"
@@ -275,6 +293,14 @@ noremap <C-K> 5k
 
 "get rid of search highlighting but not clear search with esc
 "map ± :noh<CR>
+
+"when searching, make the new hit be at the center of screen.
+nnoremap n nzz
+nnoremap N Nzz
+
+"* and # will now jump you back to the word you started it on, and center screen.
+nnoremap * *Nzz
+nnoremap # #Nzz
 
 " }}}
 "___________________________________BUFFERS___________________________________{{{
