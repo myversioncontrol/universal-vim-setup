@@ -30,7 +30,7 @@ set number
 
 "gives numbering relative to your cursor. 
 "both number and relativenumber makes current line absolute, rest relative
-set relativenumber
+"set relativenumber			"THIS HAS BEEN DISABLED FOR PERFORMANCE
 
 " gives pretty colours for coding
 syntax on
@@ -150,7 +150,19 @@ function! ToggleMappings()
 		"while loop
 		imap while<TAB> while<SPACE>()<SPACE>{<CR>}<ESC>k$ba
 
+		"funcitons
 		imap func<TAB> function<SPACE>()<SPACE>{<CR>}<ESC>k$bi
+
+		"error_log
+		imap error_log<TAB> error_log("");<ESC>hhi
+		imap error<TAB> error_log("");<ESC>hhi
+		imap err<TAB> error_log("");<ESC>hhi
+		imap er<TAB> error_log("");<ESC>hhi
+		
+		"console.log
+		imap console<TAB> console.log("");<ESC>hhi
+		imap cons<TAB> console.log("");<ESC>hhi
+		imap con<TAB> console.log("");<ESC>hhi
 
 		echo "AC ON!"
     else
@@ -165,6 +177,13 @@ function! ToggleMappings()
 		iunmap fore<TAB>
 		iunmap while<TAB>
 		iunmap func<TAB>
+		iunmap error_log<TAB>
+		iunmap error<TAB>
+		iunmap err<TAB>
+		iunmap er<TAB>
+		iunmap console<TAB>
+		iunmap cons<TAB>
+		iunmap con<TAB>
 		echo "AC OFF!"
     endif
 
