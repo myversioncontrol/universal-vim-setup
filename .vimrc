@@ -438,6 +438,26 @@ set statusline+=%10(%P%)		"<percentage_pos_in_file> PADDED_10_SPACES
 
 
 " }}}
+"__________________________________LANGUAGES__________________________________{{{
+
+"_____________________________________PHP_____________________________________{{{
+
+"type :h ft-php-syntax for more info
+
+"if you like SQL sntax highlighting inside Strings
+let php_sql_query = 1
+
+"Enable HTML syntax highlighting inside Strings
+let php_htmlInStrings = 1
+
+"For Highlighting parent error ] or )
+let php_parent_error_close = 1
+
+"For Highlighting parent error ] or )
+let php_parent_error_close = 1
+" }}}
+
+" }}}
 "__________________________________THIS_FILE__________________________________{{{
 
 "the folding for this file is done with the foldmethod=marker modeline
