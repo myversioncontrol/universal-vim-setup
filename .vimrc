@@ -391,7 +391,14 @@ endif
 
 "this fold is for managing the settings of any plugins I use
 
-"___________________________________CTRL__P___________________________________{{{
+"________________________________YouCompleteMe________________________________{{{
+
+"is a requirement for YouCompleteMe
+set encoding=utf-8
+
+" }}}
+
+"____________________________________CtrlP____________________________________{{{
 
 "fuzzy search file browser for vim. Remapped in key_mapping to <LEADER>p
 "and <LEADER>o for buffer search
