@@ -330,6 +330,9 @@ nnoremap # #Nzz
 "each buffer is a file
 set hidden
 
+"cursor jumps to start of line when switching buffers, this will prevent that
+set nostartofline
+
 "save current set of buffers and splits with <LEADER>s and open with vim -S
 "NOTE! when doing so, save all files with :wqa or unsaved changes are lost
 " }}}
