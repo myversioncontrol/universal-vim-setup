@@ -286,9 +286,9 @@ vnoremap <LEADER>c ~
 nnoremap <LEADER>s :mksession!<CR>
 
 "type <LEADER> / for 
-"very magic mode, global replace, ask for confirmation
-"and positions cursor so you type search/replace
-nnoremap <LEADER>/ :%s/\v/gc<Left><Left><Left>
+"searching recursively through current directory without using autocmd
+"(increases search speed)
+nnoremap <LEADER>/ :noautocmd<SPACE>vimgrep<SPACE>//j<SPACE>**/*<LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT>
 
 "type <LEADER> ? for search accross files
 "noautocmd to prevent slow searches (would run autocmds on every search)
