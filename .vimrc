@@ -3,6 +3,9 @@
 "start my plugin manager for vim. Don't worry, its not a virus, I swear...
 execute pathogen#infect()
 
+"increase timeout for syntax highlighting, to allow large file highlighting
+set rdt=10000
+
 " }}}
 "_______________________________TABS_AND_SPACES_______________________________{{{
 
@@ -135,8 +138,9 @@ function! ToggleMappings()
 		"else statement
 		imap else<TAB> else<SPACE>{<CR>}<ESC>kA<CR>
 
-		"else statement
+		"elseif statement
 		imap elseif<TAB> elseif<SPACE>()<SPACE>{<CR>}<ESC>k$ba
+		imap elsif<TAB> elseif<SPACE>()<SPACE>{<CR>}<ESC>k$ba
 
 		"for loop
 		imap for<TAB> for<SPACE>()<SPACE>{<CR>}<ESC>k$ba
@@ -170,6 +174,7 @@ function! ToggleMappings()
         iunmap if<TAB>
 		iunmap else<TAB>
 		iunmap elseif<TAB>
+		iunmap elsif<TAB>
 		iunmap for<TAB>
 		iunmap foreach<TAB>
 		iunmap foreac<TAB>
@@ -325,6 +330,12 @@ nnoremap # #Nzz
 "Better yanks
 nnoremap Y ^yg_
 
+" For local replace
+nnoremap <LEADER>r gd[{V%::s/<C-R>///gc<LEFT><LEFT><LEFT>
+
+" For global replace
+nnoremap <LEADER>R gD:%s/<C-R>///gc<LEFT><LEFT><LEFT>
+
 " }}}
 "___________________________________BUFFERS___________________________________{{{
 
@@ -429,6 +440,16 @@ let g:ctrlp_switch_buffer=0
 let g:ctrlp_match_window = 'bottom,order:ttb'
 " }}}
 
+"__________________________________EasyAlign__________________________________{{{
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
+
+" }}}
+
 " }}}
 "_________________________________STATUS_LINE_________________________________{{{
 
@@ -443,6 +464,9 @@ set statusline+=%10(%P%)		"<percentage_pos_in_file> PADDED_10_SPACES
 " }}}
 "____________________________________OTHER____________________________________{{{
 
+"removes octal and hex as considerations when (inc/dec)rementing with ctrl-A
+set nrformats-=octal
+set nrformats-=hex
 
 " }}}
 "__________________________________LANGUAGES__________________________________{{{
