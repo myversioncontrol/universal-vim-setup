@@ -288,7 +288,8 @@ nnoremap <LEADER>s :mksession!<CR>
 "type <LEADER> / for 
 "searching recursively through current directory without using autocmd
 "(increases search speed)
-nnoremap <LEADER>/ :noautocmd<SPACE>vimgrep<SPACE>//j<SPACE>**/*<LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT>
+"without jumping to first match, and open results list
+nnoremap <LEADER>/ :noautocmd<SPACE>vimgrep<SPACE>//j<SPACE>**/* \| :copen<LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT><LEFT>
 
 "type <LEADER> ? for search accross files
 "noautocmd to prevent slow searches (would run autocmds on every search)
@@ -320,6 +321,9 @@ nnoremap N Nzz
 "* and # will now jump you back to the word you started it on, and center screen.
 nnoremap * *Nzz
 nnoremap # #Nzz
+
+"Better yanks
+nnoremap Y ^yg_
 
 " }}}
 "___________________________________BUFFERS___________________________________{{{
