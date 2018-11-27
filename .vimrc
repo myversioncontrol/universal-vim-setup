@@ -6,6 +6,9 @@ execute pathogen#infect()
 "increase timeout for syntax highlighting, to allow large file highlighting
 set rdt=10000
 
+"file encoding
+set encoding=utf-8
+
 " }}}
 "_______________________________TABS_AND_SPACES_______________________________{{{
 
@@ -328,6 +331,7 @@ nnoremap * *Nzz
 nnoremap # #Nzz
 
 "Better yanks
+"Better yanks
 nnoremap Y ^yg_
 
 " For local replace
@@ -409,10 +413,10 @@ endif
 
 "this fold is for managing the settings of any plugins I use
 
-"________________________________YouCompleteMe________________________________{{{
+"___________________________________TabNine___________________________________{{{
 
-"is a requirement for YouCompleteMe
-set encoding=utf-8
+"Plugin Requirement
+set rtp+=~/bundle/tabnine-vim
 
 " }}}
 
