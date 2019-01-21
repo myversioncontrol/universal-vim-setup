@@ -334,11 +334,14 @@ nnoremap # #Nzz
 "Better yanks
 nnoremap Y ^yg_
 
-" For local replace
-nnoremap <LEADER>r gd[{V%::s/<C-R>///gc<LEFT><LEFT><LEFT>
+" For global replace
+nnoremap <LEADER>r *yiw:%s/<C-R>"//gc<LEFT><LEFT><LEFT>
 
 " For global replace
-nnoremap <LEADER>R gD:%s/<C-R>///gc<LEFT><LEFT><LEFT>
+nnoremap <LEADER>R *yiw:%s/<C-R>"//gc<LEFT><LEFT><LEFT>
+
+" press gp to reselect last pasted or changed text, see http://vim.wikia.com/wiki/Selecting_your_pasted_text
+nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
 " }}}
 "___________________________________BUFFERS___________________________________{{{
