@@ -171,6 +171,9 @@ function! ToggleMappings()
 		imap cons<TAB> console.log("");<ESC>hhi
 		imap con<TAB> console.log("");<ESC>hhi
 
+		"echo
+		imap echo<TAB> echo "" . <BR>;<ESC>8hi
+
 		echo "AC ON!"
     else
 		"MAPPING OFF
@@ -192,6 +195,7 @@ function! ToggleMappings()
 		iunmap console<TAB>
 		iunmap cons<TAB>
 		iunmap con<TAB>
+		iunmap echo<TAB>
 		echo "AC OFF!"
     endif
 
@@ -201,9 +205,11 @@ endfunction
 "call it so its enabled by default, silent so it it doesnt prompt
 silent TAC
 
+"your hand will thank you for not reaching all the way to the backspace
+inoremap <BS> <C-O>:echoe 'WHOOPS! Did you mean Ctrl + h ?'<CR>
+
+
 "}}}
-
-
 
 
 " Enter key inserts newline after current line without entering insert mode
