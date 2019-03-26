@@ -15,6 +15,9 @@ set encoding=utf-8
 "short for noexpandtab, copyindent, preserveindent, softtabstop=0, shiftwidth=4, tabstop=4
 set noet ci pi sts=0 sw=4 ts=4
 
+"call :SuperRetab 4   to convert every 4 spaces to a tab at the start of a line
+:command! -nargs=1 -range SuperRetab <line1>,<line2>s/\v%(^ *)@<= {<args>}/\t/g
+
 " }}}
 "___________________________________COLOURS___________________________________{{{
 
@@ -291,8 +294,8 @@ nnoremap <LEADER><TAB> gt
 "invoke CTRL-P plugin with <LEADER>p instead
 
 "<LEADER>c will change case (swap case) in normal and visual mode respectively.
-nnoremap <LEADER>c ~
-vnoremap <LEADER>c ~
+nnoremap <LEADER>c g~
+vnoremap <LEADER>c g~
 
 "save buffers and splits in a session. Reload session with vim -S
 "NOTE! when doing so, save all files with :wa or unsaved changes are lost
