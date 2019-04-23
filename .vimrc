@@ -88,6 +88,18 @@ set hlsearch
 
 "next search and previous search center screen after jumps
 
+" The Silver Searcher
+if executable('ag')
+  " Use ag over grep
+  set grepprg=ag\ --nogroup\ --nocolor
+
+  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+
+  " ag is fast enough that CtrlP doesn't need to cache
+  let g:ctrlp_use_caching = 0
+endif
+
 " }}}
 "___________________________________FOLDING___________________________________{{{
 
@@ -351,6 +363,14 @@ nnoremap <LEADER>R *yiw:%s/<C-R>"//gc<LEFT><LEFT><LEFT>
 
 " press gp to reselect last pasted or changed text, see http://vim.wikia.com/wiki/Selecting_your_pasted_text
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
+
+"back in quickfix list
+nnoremap <C-b> :cprev<CR>
+
+"next in quickfix list
+nnoremap <C-n> :cnext<CR>
+
+"exit quickfix list
 
 " }}}
 "___________________________________BUFFERS___________________________________{{{
