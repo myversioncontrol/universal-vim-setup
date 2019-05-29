@@ -364,6 +364,14 @@ nnoremap <LEADER>R *yiw:%s/<C-R>"//gc<LEFT><LEFT><LEFT>
 " press gp to reselect last pasted or changed text, see http://vim.wikia.com/wiki/Selecting_your_pasted_text
 nnoremap <expr> gp '`[' . strpart(getregtype(), 0, 1) . '`]'
 
+"back in quickfix list
+nnoremap <C-b> :cprev<CR>
+
+"next in quickfix list
+nnoremap <C-n> :cnext<CR>
+
+"exit quickfix list
+
 " }}}
 "___________________________________BUFFERS___________________________________{{{
 
@@ -514,6 +522,23 @@ let php_parent_error_close = 1
 
 "For Highlighting parent error ] or )
 let php_parent_error_close = 1
+" }}}
+
+
+"___________________________________GOLANG____________________________________{{{
+
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+  let l:file = expand('%')
+  if l:file =~# '^\f\+_test\.go$'
+    call go#test#Test(0, 1)
+  elseif l:file =~# '^\f\+\.go$'
+    call go#cmd#Build(0)
+  endif
+endfunction
+
+autocmd FileType go nmap <leader>t :<C-u>call <SID>build_go_files()<CR>
+
 " }}}
 
 " }}}
