@@ -259,16 +259,6 @@ nnoremap <LEADER>f za
 "<expr> use answer of the right hand side evaluation (turnary operator)
 nnoremap <expr> <LEADER>F &foldlevel ? 'zMzz' :'zRzz'
 
-"if you're reading this then you've already figured out what these do
-"nnoremap <Left> :echoe "NUH UH! Use h"<CR>
-"nnoremap <Right> :echoe "NUH UH! Use l"<CR>
-"nnoremap <Up> :echoe "NUH UH! Use k"<CR>
-"nnoremap <Down> :echoe "NUH UH! Use j"<CR>
-"inoremap <Left> <ESC>:echoe "NUH UH! Use h"<CR>la
-"inoremap <Right> <ESC>:echoe "NUH UH! Use l"<CR>la
-"inoremap <Up> <ESC>:echoe "NUH UH! Use k"<CR>la
-"inoremap <Down> <ESC>:echoe "NUH UH! Use j"<CR>la
-
 noremap <Up> <nop>
 noremap <Down> <nop>
 noremap <Left> <nop>
@@ -326,9 +316,6 @@ nnoremap <LEADER>/ :noautocmd<SPACE>vimgrep<SPACE>//j<SPACE>**/* \| :copen<LEFT>
 "j flag to prevent it jumping to first match
 "** for current directory recursive search
 nnoremap <LEADER>? :noautocmd<SPACE>vimgrep<SPACE>/\c/j<SPACE>**<LEFT><LEFT><LEFT><LEFT><LEFT>
-
-"im tired of reaching for shift. Why do in 3 what you can do in 2?
-nnoremap ; :
 
 "swap two splits, <leader>q to mark one and <leader>w to mark the other
 "set in split tab
