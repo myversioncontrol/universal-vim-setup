@@ -65,6 +65,11 @@ set showcmd
 "shows the current filename above the statusbar
 set laststatus=2
 
+"prevents pressing enter or o from starting a line with a comment
+:set formatoptions-=r
+:set formatoptions-=o
+
+
 " }}}
 "___________________________________SEARCH?___________________________________{{{
 
@@ -187,7 +192,7 @@ function! ToggleMappings()
 		imap con<TAB> console.log("");<ESC>hhi
 
 		"echo
-		imap echo<TAB> echo "" . <BR>;<ESC>8hi
+		imap echo<TAB> echo "";<ESC>hi
 
 		echo "AC ON!"
     else
@@ -490,6 +495,9 @@ set statusline+=%10(%P%)		"<percentage_pos_in_file> PADDED_10_SPACES
 "removes octal and hex as considerations when (inc/dec)rementing with ctrl-A
 set nrformats-=octal
 set nrformats-=hex
+
+"vimdiff ignores changes in amount of whitespace
+set diffopt+=iwhite
 
 " }}}
 "__________________________________LANGUAGES__________________________________{{{
